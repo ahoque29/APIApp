@@ -26,6 +26,17 @@ namespace APIClient
 			// Output the result
 			Console.WriteLine("Response content (string)");
 			Console.WriteLine(restResponse.Content);
+
+			Console.WriteLine();
+
+			// Code obtained from postman
+			var client = new RestClient("https://api.postcodes.io/postcodes/EC2Y5AS");
+			client.Timeout = -1;
+			var request = new RestRequest(Method.GET);
+			request.AddHeader("Content-Type", "application/json");
+			request.AddHeader("Cookie", "__cfduid=d4ab2ca91e79a617295e1f864acd2bf461614162765");
+			IRestResponse response = client.Execute(request);
+			Console.WriteLine(response.Content);
 		}
 	}
 }
