@@ -18,7 +18,14 @@ namespace APIClient
 
 			// Set up the resource specification
 			var postcode = "EC2Y 5AS";
-			restRequest.Resource = $"postcodes/{postcode.ToLower().Replace(" ", "")}";			
+			restRequest.Resource = $"postcodes/{postcode.ToLower().Replace(" ", "")}";
+
+			// Call the API
+			var restResponse = restClient.Execute(restRequest);
+
+			// Output the result
+			Console.WriteLine("Response content (string)");
+			Console.WriteLine(restResponse.Content);
 		}
 	}
 }
