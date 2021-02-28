@@ -62,6 +62,11 @@ namespace APIClient
 
 			//var singlePostCode = JsonConvert.DeserializeObject<SinglePostcodeResponse>(restResponse.Content);
 			var bulkPostCodes = JsonConvert.DeserializeObject<BulkPostcodeResponse>(response.Content);
+
+			Console.WriteLine();
+
+			// getting the admin district from the deserialized object
+			Console.WriteLine(bulkPostCodes.result[0].result.admin_district);
 		}
 	}
 }

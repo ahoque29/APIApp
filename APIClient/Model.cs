@@ -12,6 +12,12 @@
 		public Postcode result { get; set; }
 	}
 
+	public class SinglePostcodeResponse
+	{
+		public int status { get; set; }
+		public Postcode result { get; set; }
+	}
+
 	public class Postcode
 	{
 		public string postcode { get; set; }
