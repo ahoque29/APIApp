@@ -1,4 +1,5 @@
 ﻿using System;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RestSharp;
 
@@ -6,7 +7,7 @@ namespace APIClient
 {
 	public class Program
 	{
-		static void Main(string[] args)
+		public static void Main(string[] args)
 		{
 			var restClient = new RestClient("https://api.postcodes.io/");
 			var restRequest = new RestRequest();
@@ -58,6 +59,9 @@ namespace APIClient
 			// getting the admin district from the JObject
 			var adminDistrict = jsonResponse["result"]["admin_district"];
 			Console.WriteLine($"Admin district: {adminDistrict}");
+
+			//var singlePostCode = JsonConvert.DeserializeObject<SinglePostcodeResponse>(restResponse.Content);
+			var bulkPostCodes = JsonConvert.DeserializeObject<BulkPostcodeResponse>(response.Content);
 		}
 	}
 }
