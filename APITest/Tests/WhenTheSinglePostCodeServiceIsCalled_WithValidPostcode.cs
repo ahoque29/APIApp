@@ -12,9 +12,14 @@ namespace APITest.Tests
 	{
 		SinglePostCodeService _spcs = new SinglePostCodeService();
 
+		[OneTimeSetUp]
+		public async void OneTimeSetUpAsync()
+		{
+			await _spcs.MakeRequest("EC2Y 5AS");
+		}
+
 		public WhenTheSinglePostCodeServiceIsCalled_WithValidPostcode()
 		{
-			_spcs.MakeRequest("EC2Y 5AS");
 		}
 
 		[Test]

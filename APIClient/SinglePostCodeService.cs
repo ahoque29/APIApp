@@ -35,7 +35,7 @@ namespace APIClient
 		/// Defines and makes the API request, and stores the response.
 		/// </summary>
 		/// <param name="postcode"></param>
-		public void MakeRequest(string postcode)
+		public async Task MakeRequest(string postcode)
 		{
 			// Set up the request
 			var request = new RestRequest();
@@ -48,7 +48,7 @@ namespace APIClient
 			request.Resource = $"postcodes/{postcode.ToLower().Replace(" ", "")}";
 
 			// Make the request
-			IRestResponse response = Client.Execute(request);
+			IRestResponse response = await Client.ExecuteAsync(request);
 
 			// Parse it into a json object
 			ResponseContent = JObject.Parse(response.Content);
