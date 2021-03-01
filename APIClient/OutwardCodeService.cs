@@ -24,6 +24,14 @@ namespace APIClient
 
 		#endregion
 
+		public OutwardCodeService()
+		{
+			Client = new RestClient
+			{
+				BaseUrl = new Uri(AppConfigReader.BaseUrl)
+			};
+		}
+
 		/// <summary>
 		/// Defines and makes the PI request, and stores the response.
 		/// </summary>
@@ -34,6 +42,7 @@ namespace APIClient
 			// Set up the request
 			var request = new RestRequest();
 			request.AddHeader("Content-Type", "application/json");
+			OutcodeSelected = outcode;
 
 			// Define request resource path
 			// Changing to lower case
@@ -48,6 +57,5 @@ namespace APIClient
 			// Parse Json into an object tree
 			OutcodeResponseObject = JsonConvert.DeserializeObject<OutcodeResponse>(response.Content);
 		}
-
 	}
 }

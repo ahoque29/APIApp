@@ -14,10 +14,6 @@ namespace APITest.Tests
 			await _spcs.MakeRequest("EC2Y 5AS");
 		}
 
-		public WhenTheSinglePostCodeServiceIsCalled_WithValidPostcode()
-		{
-		}
-
 		[Test]
 		public void StatusIs200()
 		{

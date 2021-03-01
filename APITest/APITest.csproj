@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tests\WhenTheOutwardCodeServiceISCalled_WithValidPostcode.cs" />
     <Compile Include="Tests\WhenTheSinglePostCodeServiceIsCalled_WithValidPostcode.cs" />
   </ItemGroup>
   <ItemGroup>
