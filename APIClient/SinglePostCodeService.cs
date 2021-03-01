@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RestSharp;
 
@@ -17,6 +18,9 @@ namespace APIClient
 
 		// a NewtonSoft object representing the json response
 		public JObject ResponseContent { get; set; }
+
+		// an object model of the response
+		public SinglePostcodeResponse ResponseObject { get; set; }
 
 		// the postcode used in this API request
 		public string PostcodeSelected { get; set; }
@@ -53,6 +57,8 @@ namespace APIClient
 			// Parse it into a json object
 			ResponseContent = JObject.Parse(response.Content);
 
+			// Parse Json into an object tree
+			ResponseObject = JsonConvert.DeserializeObject<SinglePostcodeResponse>(response.Content);
 		}
 	}
 }

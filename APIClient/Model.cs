@@ -6,15 +6,15 @@
 		public Result[] result { get; set; }
 	}
 
-	public class Result
-	{
-		public string query { get; set; }
-		public Postcode result { get; set; }
-	}
-
 	public class SinglePostcodeResponse
 	{
 		public int status { get; set; }
+		public Postcode result { get; set; }
+	}
+
+	public class Result
+	{
+		public string query { get; set; }
 		public Postcode result { get; set; }
 	}
 
