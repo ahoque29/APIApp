@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Newtonsoft.Json;
 
 namespace APIClient.PostcodesIOService
 {
-	class SinglePostcodeDTO
+	public class SinglePostcodeDTO
 	{
+		public SinglePostcodeResponse PostcodeResponse { get; set; }
+
+		public void DeserializeResponse(string postcodeResponse)
+		{
+			PostcodeResponse = JsonConvert.DeserializeObject<SinglePostcodeResponse>(postcodeResponse);
+		}
 	}
 }
