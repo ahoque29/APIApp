@@ -31,6 +31,7 @@ namespace APIClient.PostcodesIOService
 			SinglePostcodeDTO = new SinglePostcodeDTO();
 		}
 
+
 		/// <summary>
 		/// Defines and makes the API request, and stores the response.
 		/// </summary>
@@ -49,5 +50,21 @@ namespace APIClient.PostcodesIOService
 			// Parse Json into an object tree
 			SinglePostcodeDTO.DeserializeResponse(PostcodeResponse);
 		}
+
+		/// <summary>
+		/// Counts the number of codes the API returns
+		/// </summary>
+		/// <returns></returns>
+		public int CodeCount()
+		{
+			var count = 0;
+			foreach (var code in Json_Response["result"]["codes"])
+			{
+				count++;
+			}
+
+			return count;
+		}
+
 	}
 }

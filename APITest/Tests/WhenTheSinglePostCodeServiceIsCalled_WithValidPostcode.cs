@@ -31,5 +31,11 @@ namespace APITest.Tests
 		{
 			Assert.That(_spcs.SinglePostcodeDTO.PostcodeResponse.result.admin_district, Is.EqualTo("City of London"));
 		}
+
+		[Test]
+		public void NumberOfCodes_IsCorrect()
+		{
+			Assert.That(_spcs.CodeCount(), Is.EqualTo(12));
+		}
 	}
 }
