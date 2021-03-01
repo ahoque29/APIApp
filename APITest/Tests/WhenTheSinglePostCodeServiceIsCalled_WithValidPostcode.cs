@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
+﻿using System.Threading.Tasks;
 using APIClient;
+using NUnit.Framework;
 
 namespace APITest.Tests
 {
 	public class WhenTheSinglePostCodeServiceIsCalled_WithValidPostcode
 	{
-		SinglePostCodeService _spcs = new SinglePostCodeService();
+		private SinglePostCodeService _spcs = new SinglePostCodeService();
 
 		[OneTimeSetUp]
 		public async Task OneTimeSetUpAsync()

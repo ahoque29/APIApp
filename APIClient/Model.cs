@@ -67,7 +67,7 @@
 	public class OutcodeResponse
 	{
 		public int status { get; set; }
-		public Result result { get; set; }
+		public OutcodeData result { get; set; }
 	}
 
 	public class OutcodeData
@@ -83,5 +83,4 @@
 		public string[] admin_ward { get; set; }
 		public string[] country { get; set; }
 	}
-
 }

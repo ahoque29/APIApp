@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -48,7 +45,7 @@ namespace APIClient
 
 			// Define request resource path
 			// Changing to lower case
-			// Removing and whitespace
+			// Removing any whitespace
 			request.Resource = $"postcodes/{postcode.ToLower().Replace(" ", "")}";
 
 			// Make the request
