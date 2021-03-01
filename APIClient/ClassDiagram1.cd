@@ -2,33 +2,17 @@
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="APIClient.BulkPostcodeResponse">
     <Position X="0.75" Y="0.75" Width="2" />
-    <AssociationLine Name="result" Type="APIClient.Result">
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="0.193" Y="0.123" />
-      </MemberNameLabel>
-    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAQAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="result" />
-    </ShowAsAssociation>
   </Class>
-  <Class Name="APIClient.Result">
+  <Class Name="APIClient.OutcodeData">
     <Position X="3.75" Y="0.75" Width="1.5" />
-    <AssociationLine Name="result" Type="APIClient.Postcode">
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="0.183" Y="0.133" />
-      </MemberNameLabel>
-    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <HashCode>AAQAQBAAAhAAAAAAAAAAQAAACAAAAIACAAAAAAAAAAA=</HashCode>
       <FileName>Model.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="result" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="APIClient.Postcode">
     <Position X="6.25" Y="0.75" Width="2.25" />
