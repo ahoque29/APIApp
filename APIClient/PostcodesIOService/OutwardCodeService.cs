@@ -10,26 +10,27 @@ namespace APIClient.PostcodesIOService
 	{
 		#region Properties
 
-		//RestSharp object which handles communication with the API
-		public RestClient Client { get; set; }
+		// Reference to the new CallManager
+		public CallManager CallManager { get; set; }
 
-		// a NewtonSoft object representing the json response
-		public JObject OutcodeResponeContent { get; set; }
+		// A NewtonSoft object representing the json response
+		public JObject Json_Response { get; set; }
 
 		// an object model ofthe response
-		public OutcodeResponse OutcodeResponseObject { get; set; }
+		public OutcodeDTO OutcodeDTO { get; set; }
 
 		// the outcode used in the API request
 		public string OutcodeSelected { get; set; }
+
+		// The response content as a string
+		public string OutcodeResponse { get; set; }
 
 		#endregion
 
 		public OutwardCodeService()
 		{
-			Client = new RestClient
-			{
-				BaseUrl = new Uri(AppConfigReader.BaseUrl)
-			};
+			CallManager = new CallManager();
+			OutcodeDTO = new OutcodeDTO();
 		}
 
 		/// <summary>
@@ -39,23 +40,16 @@ namespace APIClient.PostcodesIOService
 		/// <returns></returns>
 		public async Task MakeRequest(string outcode)
 		{
-			// Set up the request
-			var request = new RestRequest();
-			request.AddHeader("Content-Type", "application/json");
 			OutcodeSelected = outcode;
 
-			// Define request resource path
-			// Changing to lower case
-			request.Resource = $"outcodes/{outcode.ToLower()}";
-
 			// Make the request
-			IRestResponse response = await Client.ExecuteAsync(request);
+			OutcodeResponse = await CallManager.MakeOutcodeRequest(outcode);
 
 			// Parse it into a json object
-			OutcodeResponeContent = JObject.Parse(response.Content);
+			Json_Response = JObject.Parse(OutcodeResponse);
 
 			// Parse Json into an object tree
-			OutcodeResponseObject = JsonConvert.DeserializeObject<OutcodeResponse>(response.Content);
+			OutcodeDTO.DeserializeResponse(OutcodeResponse);
 		}
 	}
 }

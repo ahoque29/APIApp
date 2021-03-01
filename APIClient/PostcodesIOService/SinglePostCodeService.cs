@@ -40,7 +40,6 @@ namespace APIClient.PostcodesIOService
 		{
 			PostcodeSelected = postcode;
 
-
 			// Make the request
 			PostcodeResponse = await CallManager.MakePostcodeRequest(postcode);
 
