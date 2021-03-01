@@ -13,7 +13,7 @@ namespace APITest.Tests
 		SinglePostCodeService _spcs = new SinglePostCodeService();
 
 		[OneTimeSetUp]
-		public async void OneTimeSetUpAsync()
+		public async Task OneTimeSetUpAsync()
 		{
 			await _spcs.MakeRequest("EC2Y 5AS");
 		}
