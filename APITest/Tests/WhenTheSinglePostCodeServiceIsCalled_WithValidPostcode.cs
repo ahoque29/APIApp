@@ -27,5 +27,17 @@ namespace APITest.Tests
 		{
 			Assert.That(_spcs.ResponseContent["status"].ToString(), Is.EqualTo("200"));
 		}
+
+		[Test]
+		public void ObjectStatusIs200()
+		{
+			Assert.That(_spcs.ResponseObject.status, Is.EqualTo(200));
+		}
+
+		[Test]
+		public void AdminDistrict_IsCityOfLondon()
+		{
+			Assert.That(_spcs.ResponseObject.result.admin_district, Is.EqualTo("City of London"));
+		}
 	}
 }
