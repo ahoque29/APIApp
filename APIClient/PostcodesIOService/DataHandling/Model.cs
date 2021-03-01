@@ -1,4 +1,4 @@
-﻿namespace APIClient
+﻿namespace APIClient.PostcodesIOService
 {
 	public class BulkPostcodeResponse
 	{

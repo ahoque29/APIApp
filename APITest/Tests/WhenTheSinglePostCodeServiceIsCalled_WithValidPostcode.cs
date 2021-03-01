@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using APIClient;
+using APIClient.PostcodesIOService;
 using NUnit.Framework;
 
 namespace APITest.Tests

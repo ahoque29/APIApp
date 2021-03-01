@@ -4,9 +4,9 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RestSharp;
 
-namespace APIClient
+namespace APIClient.PostcodesIOService
 {
-	public class SinglePostCodeService
+	public class OutwardCodeService
 	{
 		#region Properties
 
@@ -14,17 +14,17 @@ namespace APIClient
 		public RestClient Client { get; set; }
 
 		// a NewtonSoft object representing the json response
-		public JObject ResponseContent { get; set; }
+		public JObject OutcodeResponeContent { get; set; }
 
-		// an object model of the response
-		public SinglePostcodeResponse ResponseObject { get; set; }
+		// an object model ofthe response
+		public OutcodeResponse OutcodeResponseObject { get; set; }
 
-		// the postcode used in this API request
-		public string PostcodeSelected { get; set; }
+		// the outcode used in the API request
+		public string OutcodeSelected { get; set; }
 
 		#endregion
 
-		public SinglePostCodeService()
+		public OutwardCodeService()
 		{
 			Client = new RestClient
 			{
@@ -33,29 +33,29 @@ namespace APIClient
 		}
 
 		/// <summary>
-		/// Defines and makes the API request, and stores the response.
+		/// Defines and makes the PI request, and stores the response.
 		/// </summary>
-		/// <param name="postcode"></param>
-		public async Task MakeRequest(string postcode)
+		/// <param name="outcode"></param>
+		/// <returns></returns>
+		public async Task MakeRequest(string outcode)
 		{
 			// Set up the request
 			var request = new RestRequest();
 			request.AddHeader("Content-Type", "application/json");
-			PostcodeSelected = postcode;
+			OutcodeSelected = outcode;
 
 			// Define request resource path
 			// Changing to lower case
-			// Removing any whitespace
-			request.Resource = $"postcodes/{postcode.ToLower().Replace(" ", "")}";
+			request.Resource = $"outcodes/{outcode.ToLower()}";
 
 			// Make the request
 			IRestResponse response = await Client.ExecuteAsync(request);
 
 			// Parse it into a json object
-			ResponseContent = JObject.Parse(response.Content);
+			OutcodeResponeContent = JObject.Parse(response.Content);
 
 			// Parse Json into an object tree
-			ResponseObject = JsonConvert.DeserializeObject<SinglePostcodeResponse>(response.Content);
+			OutcodeResponseObject = JsonConvert.DeserializeObject<OutcodeResponse>(response.Content);
 		}
 	}
 }
