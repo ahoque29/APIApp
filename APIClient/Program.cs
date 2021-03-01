@@ -10,6 +10,8 @@ namespace APIClient
 	{
 		public static void Main(string[] args)
 		{
+			Console.WriteLine("Hello World!");
+			
 			var restClient = new RestClient("https://api.postcodes.io/");
 			var restRequest = new RestRequest();
 
