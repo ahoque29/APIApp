@@ -29,8 +29,13 @@ namespace APITest.Tests
 		[Test]
 		public void AdminDistrict_IsIslingtonAndCityOfLondon()
 		{
-			var adminDistrict = _ocs.OutcodeResponseObject.result.admin_district;
-			Assert.That(adminDistrict, Is.EqualTo(new string[] { "Islington", "City of London" }));
+			Assert.That(_ocs.OutcodeResponseObject.result.admin_district, Is.EqualTo(new string[] { "Islington", "City of London" }));
+		}
+
+		[Test]
+		public void AdminDistrict_IsLengthTwo()
+		{
+			Assert.That(_ocs.OutcodeResponseObject.result.admin_district.Length, Is.EqualTo(2));
 		}
 	}
 }
